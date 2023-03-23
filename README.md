@@ -58,9 +58,44 @@ Thu Mar 23 08:00:00 PM +0330 2023
 
 # Languages / Frameworks
 ## Python
+<div dir="rtl" style="direction: rtl">
+
+طبق 
+[داکیومنت پایتون](docs.python.org/3/library/zoneinfo.html)، اطلاعات مربوط به منطقه‌های زمانی از سیستم گرفته می‌شود و اگر این دیتا موجود نباشد، از پکیج `tzdata` گرفته می‌شود.
+در نتیجه، در قدم اول، بروزرسانی اطلاعات تایم‌زون‌ها رو سیستم عامل‌ها را ببینید و برای بروزرسانی پکیج tzdata از pypi، از دستور زیر استفاده کنید:
+</div>
+
+```bash
+pip install -U tzdata
+```
+
+<div dir="rtl" style="direction: rtl">
+
+برای تست اینکه بروزرسانی به دسترسی انجام شده، مثلا بررسی اینکه عدم تغییر ساعت سال ۱۴۰۲ شمسی اعمال شده، 
+می‌توانید با کد زیر امتحان کنید:
+</div>
+
+```python
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+print(datetime(2023, 3, 23, 16, 30, tzinfo=ZoneInfo('UTC')).astimezone(ZoneInfo('Asia/Tehran')).isoformat())
+# outputs: 2023-03-23T20:00:00+03:30
+
+```
+
 
 ### Django
+<div dir="rtl" style="direction: rtl">
 
+از جنگوی نسخه‌ی ۳.۲ به قبل، جنگو از پکیج `pytz` برای اطلاعات منطقه‌ی زمانی استفاده می‌کرد. در جنگوی ۳.۲، امکان استفاده از پیاده‌سازی‌های دیگر مثل zoneinfo اضافه شد و از جنگوی ۴.۰، استفاده از zoneinfo که پیش‌فرض پایتون است به عنوان پیاده‌سازی پیش‌فرض مورد استفاده قرار گرفت.
+
+با توجه به توضیح بند قبل، اگر از لایبرری pytz استفاده می‌کنید، با دستور زیر باید آن را بروزرسانی کنید:
+</div>
+
+```bash
+pip install -U pytz
+```
 ## Java
 <div dir="rtl" style="direction: rtl">
 

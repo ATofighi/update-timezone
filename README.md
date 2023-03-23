@@ -15,30 +15,40 @@
 <div dir="rtl" style="direction: rtl">
 
 در لینوکس، عموما بسته‌ی `tzdata` وظیفه‌ی نگهداری اطلاعات تایم‌زون‌های مختلف را بر عهده دارد. برای آپگرید آن می‌توانید دستورات زیر را در ترمینال بزنید:
+</div>
 
 ```
 sudo apt update
 sudo apt install tzdata
 ```
 
+<div dir="rtl" style="direction: rtl">
+
 اگر در محیط Docker و مثلا در Dockerfile نیاز به آپدیت دارید، لازم است که در حالت غیر تعاملی (non interactive) دستورات را اجرا کنید
+</div>
 
 ```
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install tzdata
 ```
 
+<div dir="rtl" style="direction: rtl">
+
 برای بررسی عدم تغییر ساعت در سال ۱۴۰۲، مثلا دستور زیر را اجرا کنید:
+</div>
 
 ```bash
 TZ=Asia/Tehran date --date='@1679589000'
 ```
 
+<div dir="rtl" style="direction: rtl">
+
 خروجی باید مقدار زیر باشد:
+</div>
+
 ```
 Thu Mar 23 08:00:00 PM +0330 2023
 ```
 
-</div>
 
 ## Android
 
